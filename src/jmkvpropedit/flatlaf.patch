@@ -1,0 +1,38 @@
+--- a/build.xml
++++ b/build.xml
+@@ -47,6 +47,7 @@
+ 		<jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${build.dir}">
+ 			<zipfileset src="${lib.dir}/ini4j/ini4j-0.5.4.jar" excludes="**/META-INF/" />
+ 			<zipfileset src="${lib.dir}/commons-io/commons-io-2.11.0.jar" excludes="**/META-INF/" />
++			<zipfileset src="${lib.dir}/flatlaf/flatlaf-3.0.jar" excludes="**/META-INF/" />
+ 		    <manifest>
+                 <attribute name="Main-Class" value="${main.class}" />
+             </manifest>
+--- a/src/io/github/brunorex/JMkvpropedit.java
++++ b/src/io/github/brunorex/JMkvpropedit.java
+@@ -94,6 +94,9 @@ import org.apache.commons.io.filefilter.WildcardFileFilter;
+ import org.ini4j.Ini;
+ import org.ini4j.InvalidFileFormatException;
+ 
++import com.formdev.flatlaf.FlatLightLaf;
++import com.formdev.flatlaf.FlatDarkLaf;
++
+ public class JMkvpropedit {
+ 
+     private static final String VERSION_NUMBER = "1.5.2";
+@@ -438,7 +441,14 @@ public class JMkvpropedit {
+             public void run() {
+                 try {
+                     argsArray = args;
+-                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
++                    String theme = System.getProperty("com.formdev.flatlaf.theme");
++                    if (theme == null) {
++                        UIManager.setLookAndFeel(new FlatLightLaf());
++                    } else if (theme.equals("FlatLightLaf")) {
++                        UIManager.setLookAndFeel(new FlatLightLaf());
++                    } else if (theme.equals("FlatDarkLaf")) {
++                        UIManager.setLookAndFeel(new FlatDarkLaf());
++                    }
+                     JMkvpropedit window = new JMkvpropedit();
+                     window.frmJMkvpropedit.setVisible(true);
+                 } catch (Exception e) {

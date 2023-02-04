@@ -1,0 +1,12 @@
+--- a/src/io/github/brunorex/JMkvpropedit.java
++++ b/src/io/github/brunorex/JMkvpropedit.java
+@@ -1495,7 +1495,8 @@ public class JMkvpropedit {
+ 
+         pnlOptions = new JPanel();
+         pnlOptions.setBorder(new EmptyBorder(10, 10, 10, 10));
+-        pnlTabs.addTab("Options", null, pnlOptions, null);
++        // The Options tab is not needed in Docker container.
++        // pnlTabs.addTab("Options", null, pnlOptions, null);
+         GridBagLayout gbl_pnlOptions = new GridBagLayout();
+         gbl_pnlOptions.columnWidths = new int[] { 0, 0, 0 };
+         gbl_pnlOptions.rowHeights = new int[] { 0, 0, 0, 0 };
