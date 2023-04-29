@@ -60,7 +60,7 @@ xx-apk --no-cache --no-scripts add \
 
 log "Downloading MKVToolNix package..."
 mkdir /tmp/mkvtoolnix
-curl -# -L ${MKVTOOLNIX_URL} | tar xJ --strip 1 -C /tmp/mkvtoolnix
+curl -# -L -f ${MKVTOOLNIX_URL} | tar xJ --strip 1 -C /tmp/mkvtoolnix
 
 #
 # Compile.

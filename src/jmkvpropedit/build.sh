@@ -30,7 +30,7 @@ apk --no-cache add \
 
 log "Downloading JMkvpropedit package..."
 mkdir /tmp/jmkvpropedit
-curl -# -L ${JMKVPROPEDIT_URL} | tar xz --strip 1 -C /tmp/jmkvpropedit
+curl -# -L -f ${JMKVPROPEDIT_URL} | tar xz --strip 1 -C /tmp/jmkvpropedit
 
 #
 # Compile.
