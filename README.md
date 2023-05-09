@@ -1,7 +1,7 @@
 # Docker container for JMkvpropedit
 [![Docker Image Size](https://img.shields.io/docker/image-size/jlesage/jmkvpropedit/latest)](https://hub.docker.com/r/jlesage/jmkvpropedit/tags) [![Build Status](https://github.com/jlesage/docker-jmkvpropedit/actions/workflows/build-image.yml/badge.svg?branch=master)](https://github.com/jlesage/docker-jmkvpropedit/actions/workflows/build-image.yml) [![GitHub Release](https://img.shields.io/github/release/jlesage/docker-jmkvpropedit.svg)](https://github.com/jlesage/docker-jmkvpropedit/releases/latest) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/JocelynLeSage)
 
-This is a Docker container for [JMkvpropedit](https://github.com/BrunoReX/jmkvpropedit).
+This project implements a Docker container for [JMkvpropedit](https://github.com/BrunoReX/jmkvpropedit).
 
 The GUI of the application is accessed through a modern web browser (no
 installation or configuration needed on the client side) or via any VNC client.
@@ -72,6 +72,7 @@ docker run [-d] \
     [-p <HOST_PORT>:<CONTAINER_PORT>]... \
     jlesage/jmkvpropedit
 ```
+
 | Parameter | Description |
 |-----------|-------------|
 | -d        | Run the container in the background.  If not set, the container runs in the foreground. |
@@ -318,11 +319,13 @@ Assuming that container's ports are mapped to the same host's ports, the
 graphical interface of the application can be accessed via:
 
   * A web browser:
+
 ```
 http://<HOST IP ADDR>:5800
 ```
 
   * Any VNC client:
+
 ```
 <HOST IP ADDR>:5900
 ```
