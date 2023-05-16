@@ -1,5 +1,10 @@
 # Docker container for JMkvpropedit
-[![Docker Image Size](https://img.shields.io/docker/image-size/jlesage/jmkvpropedit/latest)](https://hub.docker.com/r/jlesage/jmkvpropedit/tags) [![Build Status](https://github.com/jlesage/docker-jmkvpropedit/actions/workflows/build-image.yml/badge.svg?branch=master)](https://github.com/jlesage/docker-jmkvpropedit/actions/workflows/build-image.yml) [![GitHub Release](https://img.shields.io/github/release/jlesage/docker-jmkvpropedit.svg)](https://github.com/jlesage/docker-jmkvpropedit/releases/latest) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/JocelynLeSage)
+[![Release](https://img.shields.io/github/release/jlesage/docker-jmkvpropedit.svg?logo=github&style=for-the-badge)](https://github.com/jlesage/docker-jmkvpropedit/releases/latest)
+[![Docker Image Size](https://img.shields.io/docker/image-size/jlesage/jmkvpropedit/latest?logo=docker&style=for-the-badge)](https://hub.docker.com/r/jlesage/jmkvpropedit/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jlesage/jmkvpropedit?label=Pulls&logo=docker&style=for-the-badge)](https://hub.docker.com/r/jlesage/jmkvpropedit)
+[![Docker Stars](https://img.shields.io/docker/stars/jlesage/jmkvpropedit?label=Stars&logo=docker&style=for-the-badge)](https://hub.docker.com/r/jlesage/jmkvpropedit)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/jlesage/docker-jmkvpropedit/build-image.yml?logo=github&branch=master&style=for-the-badge)](https://github.com/jlesage/docker-jmkvpropedit/actions/workflows/build-image.yml)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=for-the-badge)](https://paypal.me/JocelynLeSage)
 
 This project implements a Docker container for [JMkvpropedit](https://github.com/BrunoReX/jmkvpropedit).
 
