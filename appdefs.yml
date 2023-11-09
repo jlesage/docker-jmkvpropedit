@@ -12,6 +12,7 @@ app:
   name: jmkvpropedit
   friendly_name: JMkvpropedit
   gui_type: x11
+  base_os: alpine
   project:
     description: |-
       JMkvpropedit is batch GUI for mkvpropedit (part of MKVToolNix) written in Java.
