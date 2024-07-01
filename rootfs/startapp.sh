@@ -17,3 +17,5 @@ exec java \
     -Duser.home=/storage \
     -Dcom.formdev.flatlaf.theme=$THEME \
     -jar /opt/jmkvpropedit/JMkvpropedit.jar
+
+# vim:ft=sh:ts=4:sw=4:et:sts=4
