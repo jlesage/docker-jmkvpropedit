@@ -53,7 +53,7 @@ RUN /build/build.sh "$MKVTOOLNIX_URL"
 RUN xx-verify /tmp/mkvtoolnix-install/usr/bin/mkvpropedit
 
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.17-v4.6.6
+FROM jlesage/baseimage-gui:alpine-3.17-v4.6.7
 
 ARG DOCKER_IMAGE_VERSION
 
