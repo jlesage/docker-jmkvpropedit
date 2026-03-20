@@ -22,6 +22,10 @@ app:
     category: "MediaApp:Video"
   documentation:
   changelog:
+    - version: 26.03.2
+      date: 2026-03-20
+      changes:
+        - 'Files now sort alphabetically when added.'
     - version: 26.03.1
       date: 2026-03-14
       changes:
