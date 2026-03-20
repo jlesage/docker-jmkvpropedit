@@ -21,20 +21,11 @@ ARG JMKVPROPEDIT_VERSION=1.5.2
 ARG MKVTOOLNIX_VERSION=73.0.0
 
 # Define software download URLs.
-#ARG JMKVPROPEDIT_URL=https://github.com/BrunoReX/jmkvpropedit/releases/download/v${JMKVPROPEDIT_VERSION}/jmkvpropedit-v${JMKVPROPEDIT_VERSION}.zip
 ARG JMKVPROPEDIT_URL=https://github.com/BrunoReX/jmkvpropedit/archive/refs/tags/v${JMKVPROPEDIT_VERSION}.tar.gz
 ARG MKVTOOLNIX_URL=https://mkvtoolnix.download/sources/mkvtoolnix-${MKVTOOLNIX_VERSION}.tar.xz
 
 # Get Dockerfile cross-compilation helpers.
 FROM --platform=$BUILDPLATFORM tonistiigi/xx AS xx
-
-# Download JMkvpropedit
-#FROM --platform=$BUILDPLATFORM alpine:3.16 AS jmkvpropedit
-#ARG JMKVPROPEDIT_URL
-#RUN \
-#    apk --no-cache add curl && \
-#    curl -# -L -o /tmp/jmkvpropedit.zip "$JMKVPROPEDIT_URL" && \
-#    unzip -d /tmp /tmp/jmkvpropedit.zip
 
 # Build JMkvpropedit
 FROM --platform=$BUILDPLATFORM alpine:3.16 AS jmkvpropedit
