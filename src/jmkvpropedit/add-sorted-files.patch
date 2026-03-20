@@ -1,0 +1,39 @@
+#
+# Sort files from the file chooser before adding them to the interface.
+#
+--- a/src/io/github/brunorex/JMkvpropedit.java	2026-03-19 18:34:18.942449403 -0400
++++ b/src/io/github/brunorex/JMkvpropedit.java	2026-03-19 18:37:58.795823019 -0400
+@@ -52,6 +52,8 @@
+ import java.util.ArrayList;
+ import java.util.Iterator;
+ import java.util.List;
++import java.util.Comparator;
++import java.util.Arrays;
+ 
+ import javax.swing.AbstractButton;
+ import javax.swing.Box;
+@@ -1681,6 +1683,7 @@
+ 
+                 if (open == JFileChooser.APPROVE_OPTION) {
+                     files = chooser.getSelectedFiles();
++                    Arrays.sort(files, Comparator.comparing(File::getAbsolutePath, String.CASE_INSENSITIVE_ORDER));
+                     for (int i = 0; i < files.length; i++) {
+                         try {
+                             if (!modelFiles.contains(files[i].getCanonicalPath()) && files[i].exists()) {
+@@ -4948,8 +4951,15 @@
+             public void run() {
+                 Iterator<File> mkvFiles = FileUtils.iterateFiles(folder, MATROSKA_FILE_FILTER, TrueFileFilter.INSTANCE);
+ 
++                List<File> mkvFileList = new ArrayList<>();
+                 while (mkvFiles.hasNext()) {
+-                    addFile(mkvFiles.next(), false);
++                    mkvFileList.add(mkvFiles.next());
++                }
++
++                mkvFileList.sort(Comparator.comparing(File::getAbsolutePath, String.CASE_INSENSITIVE_ORDER));
++
++                for (File file : mkvFileList) {
++                    addFile(file, false);
+                 }
+             }
+         };

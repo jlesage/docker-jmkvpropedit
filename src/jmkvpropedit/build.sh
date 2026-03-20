@@ -39,6 +39,7 @@ curl -# -L -f ${JMKVPROPEDIT_URL} | tar xz --strip 1 -C /tmp/jmkvpropedit
 log "Patching mkvpropedit..."
 patch -p1 -d /tmp/jmkvpropedit < "$SCRIPT_DIR"/flatlaf.patch
 patch -p1 -d /tmp/jmkvpropedit < "$SCRIPT_DIR"/hide-options-tab.patch
+patch -p1 -d /tmp/jmkvpropedit < "$SCRIPT_DIR"/add-sorted-files.patch
 
 mkdir /tmp/jmkvpropedit/lib/flatlaf
 cp -v "$SCRIPT_DIR"/flatlaf-3.0.jar /tmp/jmkvpropedit/lib/flatlaf/
