@@ -22,6 +22,10 @@ app:
     category: "MediaApp:Video"
   documentation:
   changelog:
+    - version: 26.03.3
+      date: 2026-03-21
+      changes:
+        - 'Fixed an issue where the `.java` folder would be unexpectedly created under the storage directory.'
     - version: 26.03.2
       date: 2026-03-20
       changes:
