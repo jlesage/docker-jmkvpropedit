@@ -14,7 +14,7 @@ else
 fi
 
 exec java \
-    -Duser.home=/storage \
+    -Duser.home=/config \
     -Dcom.formdev.flatlaf.theme=$THEME \
     -jar /opt/jmkvpropedit/JMkvpropedit.jar
 

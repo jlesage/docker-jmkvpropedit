@@ -40,6 +40,7 @@ log "Patching mkvpropedit..."
 patch -p1 -d /tmp/jmkvpropedit < "$SCRIPT_DIR"/flatlaf.patch
 patch -p1 -d /tmp/jmkvpropedit < "$SCRIPT_DIR"/hide-options-tab.patch
 patch -p1 -d /tmp/jmkvpropedit < "$SCRIPT_DIR"/add-sorted-files.patch
+patch -p1 -d /tmp/jmkvpropedit < "$SCRIPT_DIR"/file-chooser-initial-path.patch
 
 mkdir /tmp/jmkvpropedit/lib/flatlaf
 cp -v "$SCRIPT_DIR"/flatlaf-3.0.jar /tmp/jmkvpropedit/lib/flatlaf/

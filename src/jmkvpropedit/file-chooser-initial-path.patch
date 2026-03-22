@@ -1,0 +1,22 @@
+#
+# Set the initial director of the file chooser.
+#
+--- a/src/io/github/brunorex/JMkvpropedit.javag	2026-03-19 18:34:18.942449403 -0400
++++ b/src/io/github/brunorex/JMkvpropedit.java	2026-03-21 21:50:26.426648157 -0400
+@@ -108,7 +110,7 @@
+     private File iniFile = new File("JMkvpropedit.ini");
+     private static final MkvStrings mkvStrings = new MkvStrings();
+ 
+-    private JFileChooser chooser = new JFileChooser(System.getProperty("user.home")) {
++    private JFileChooser chooser = new JFileChooser("/storage") {
+         private static final long serialVersionUID = 1L;
+ 
+         @Override
+@@ -1701,6 +1704,7 @@
+                 chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+                 chooser.setDialogTitle("Select folder with Matroska files to edit");
+                 chooser.setAcceptAllFileFilterUsed(false);
++                chooser.setCurrentDirectory(new File("/storage"));
+ 
+                 int open = chooser.showOpenDialog(frmJMkvpropedit);
+ 
