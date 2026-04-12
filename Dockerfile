@@ -18,11 +18,9 @@ ARG DOCKER_IMAGE_VERSION=
 
 # Define software versions.
 ARG JMKVPROPEDIT_VERSION=1.5.2
-ARG MKVTOOLNIX_VERSION=81.0
 
 # Define software download URLs.
 ARG JMKVPROPEDIT_URL=https://github.com/BrunoReX/jmkvpropedit/archive/refs/tags/v${JMKVPROPEDIT_VERSION}.tar.gz
-ARG MKVTOOLNIX_URL=https://mkvtoolnix.download/sources/mkvtoolnix-${MKVTOOLNIX_VERSION}.tar.xz
 
 # Get Dockerfile cross-compilation helpers.
 FROM --platform=$BUILDPLATFORM tonistiigi/xx AS xx
@@ -33,15 +31,6 @@ ARG TARGETPLATFORM
 ARG JMKVPROPEDIT_URL
 COPY src/jmkvpropedit /build
 RUN /build/build.sh "$JMKVPROPEDIT_URL"
-
-# Build mkvpropedit (part of MKVToolNix).
-FROM --platform=$BUILDPLATFORM alpine:3.20 AS mkvpropedit
-ARG TARGETPLATFORM
-ARG MKVTOOLNIX_URL
-COPY --from=xx / /
-COPY src/mkvtoolnix /build
-RUN /build/build.sh "$MKVTOOLNIX_URL"
-RUN xx-verify /tmp/mkvtoolnix-install/usr/bin/mkvpropedit
 
 # Pull base image.
 FROM jlesage/baseimage-gui:alpine-3.20-v4.11.3
@@ -56,10 +45,7 @@ RUN \
     add-pkg \
         java-common \
         openjdk8-jre \
-        qt5-qtbase \
-        gmp \
-        # We need a font.
-#        ttf-dejavu
+        mkvtoolnix \
     && true
 
 # Generate and install favicons.
@@ -70,7 +56,6 @@ RUN \
 # Add files.
 COPY rootfs/ /
 COPY --from=jmkvpropedit /tmp/jmkvpropedit/dist/JMkvpropedit.jar /opt/jmkvpropedit/
-COPY --from=mkvpropedit /tmp/mkvtoolnix-install/usr/bin/mkvpropedit /usr/bin/
 
 # Set internal environment variables.
 RUN \
