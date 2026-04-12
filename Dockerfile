@@ -28,14 +28,14 @@ ARG MKVTOOLNIX_URL=https://mkvtoolnix.download/sources/mkvtoolnix-${MKVTOOLNIX_V
 FROM --platform=$BUILDPLATFORM tonistiigi/xx AS xx
 
 # Build JMkvpropedit
-FROM --platform=$BUILDPLATFORM alpine:3.16 AS jmkvpropedit
+FROM --platform=$BUILDPLATFORM alpine:3.20 AS jmkvpropedit
 ARG TARGETPLATFORM
 ARG JMKVPROPEDIT_URL
 COPY src/jmkvpropedit /build
 RUN /build/build.sh "$JMKVPROPEDIT_URL"
 
 # Build mkvpropedit (part of MKVToolNix).
-FROM --platform=$BUILDPLATFORM alpine:3.16 AS mkvpropedit
+FROM --platform=$BUILDPLATFORM alpine:3.20 AS mkvpropedit
 ARG TARGETPLATFORM
 ARG MKVTOOLNIX_URL
 COPY --from=xx / /
@@ -44,7 +44,7 @@ RUN /build/build.sh "$MKVTOOLNIX_URL"
 RUN xx-verify /tmp/mkvtoolnix-install/usr/bin/mkvpropedit
 
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.17-v4.11.3
+FROM jlesage/baseimage-gui:alpine-3.20-v4.11.3
 
 ARG DOCKER_IMAGE_VERSION
 
