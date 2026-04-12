@@ -18,7 +18,7 @@ ARG DOCKER_IMAGE_VERSION=
 
 # Define software versions.
 ARG JMKVPROPEDIT_VERSION=1.5.2
-ARG MKVTOOLNIX_VERSION=73.0.0
+ARG MKVTOOLNIX_VERSION=81.0
 
 # Define software download URLs.
 ARG JMKVPROPEDIT_URL=https://github.com/BrunoReX/jmkvpropedit/archive/refs/tags/v${JMKVPROPEDIT_VERSION}.tar.gz
