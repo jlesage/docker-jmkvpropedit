@@ -33,7 +33,7 @@ COPY src/jmkvpropedit /build
 RUN /build/build.sh "$JMKVPROPEDIT_URL"
 
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.20-v4.12.5
+FROM jlesage/baseimage-gui:alpine-3.20-v4.12.6
 
 ARG DOCKER_IMAGE_VERSION
 
